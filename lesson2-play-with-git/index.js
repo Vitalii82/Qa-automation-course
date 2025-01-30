@@ -1,4 +1,5 @@
 function sayHello(name, surname, someOtherWord) {
+    //some comment
     console.log(`Hello ${name} ${surname} ${someOtherWord}`); //second commit
 }
 
