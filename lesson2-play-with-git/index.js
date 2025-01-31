@@ -3,7 +3,7 @@ function sayHello(name, surname, someOtherWord) {
     console.log(`Hello ${name} ${surname} ${someOtherWord}`); //second commit
 }
 
-sayHello('Robot', 'Dreams', ' Vitalii Svinovei' );
+sayHello('Robot', 'Dreams', 'from Vitalii Svinovei' );
 a = 2;
 b = 1;
 console.log(a-b);
