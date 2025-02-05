@@ -7,4 +7,6 @@ function checkWeather(temperature) {
         console.log("На вулиці тепло, одягайте легкий одяг.");
     }
 }
+
+
 checkWeather(10); 
