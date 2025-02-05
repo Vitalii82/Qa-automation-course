@@ -3,3 +3,5 @@
 **Lesson 1** - No artifacts
 
 **Lesson 2** - [lesson2-play-with-git](./lesson2-play-with-git)
+
+**lesson 3** -[Lesson3](./QA-automation-course/lesson3/)
