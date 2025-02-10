@@ -1,11 +1,4 @@
-    {
-    "name": "lesson3-js-essentials-pt1",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "eslint ."
-    },
+ {
     "author": "",
     "license": "ISC",
     "description": "",
