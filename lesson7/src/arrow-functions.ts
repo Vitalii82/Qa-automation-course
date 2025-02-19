@@ -15,14 +15,14 @@ const sumArrayArrow = (arr: (number | string)[]): number => {
   
   const stringArray = ['7', '8', '9'];
   const numberArray = [10, 11, 12];
-  
-  console.log(sumArrayArrow(stringArray)); 
-  console.log(sumArrayArrow(numberArray)); 
-  
+ 
+  console.log('Сума елементів масиву stringArray:', sumArrayArrow(stringArray)); 
+  console.log('Сума елементів масиву numberArray:', sumArrayArrow(numberArray)); 
+ 
   const mixedArray = [1, '2', '3.5', 4, '5'];
   const filteredSum = mixedArray
     .map((element) => parseFloat(element as string)) 
     .filter((num) => !isNaN(num)) 
     .reduce((sum, num) => sum + num, 0); 
-  console.log(filteredSum); 
+  console.log('Фільтрована сума (mixedArray):', filteredSum); 
   
