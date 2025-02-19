@@ -1,13 +1,16 @@
 
-async function fetchDataWithFallback(url: string, fallbackUrl: string): Promise<any> {
+async function fetchDataWithFallback(url, fallbackUrl) {
   try {
+    await new Promise((resolve));
     const response = await fetch(url);
+    await new Promise((resolve));
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    const data = await response.json();
-    console.log('Data received:', data);
-    return data;
+    
+    console.log(`fetchDataWithFallback: ${counter}`);
+
+    return response;
   } catch (error) {
     console.error('First request failed, trying fallback URL...', error);
     try {
@@ -26,8 +29,8 @@ async function fetchDataWithFallback(url: string, fallbackUrl: string): Promise<
 }
 
 
-const url = 'https://nonexistent-url.com'; // Невірний URL
-const fallbackUrl = 'https://jsonplaceholder.typicode.com/posts'; // Запасний URL
+const url = 'https://nonexistent-url.com';
+const fallbackUrl = 'https://jsonplaceholder.typicode.com/posts';
 fetchDataWithFallback(url, fallbackUrl)
   .then(data => {
     console.log('Processed data:', data);
