@@ -42,14 +42,14 @@ export default tsEslint.config({
         '@stylistic/no-trailing-spaces': ['error', { skipBlankLines: false }],
         '@stylistic/eol-last': ['error', 'always'],
         '@stylistic/space-infix-ops': 'error',
-        '@stylistic/arrow-spacing': 'error',
-        '@stylistic/comma-spacing': ['error', { before: false, after: true }],
-        '@stylistic/keyword-spacing': ['error', { before: true, after: true }],
         'unicorn/filename-case': [
             'error',
             {
                 case: 'kebabCase'
             }
         ],
+        '@stylistic/arrow-spacing': 'error',
+        '@stylistic/comma-spacing': ['error', { before: false, after: true }],
+        '@stylistic/keyword-spacing': ['error', { before: true, after: true }],
     }
 });

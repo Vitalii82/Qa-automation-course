@@ -1,5 +1,5 @@
 
-function sumArray(arr: (number | string)[]): number {
+function sumArray1(arr: (number | string)[]): number {
   let sum = 0;
 
   arr.forEach(element => {
@@ -16,8 +16,8 @@ function sumArray(arr: (number | string)[]): number {
   return sum;
 }
 
-const stringArray = ['1', '2', '3'];
-const numberArray = [4, 5, 6];
+const stringArray1 = ['1', '2', '3'];
+const numberArray1 = [4, 5, 6];
 
-console.log('Сума елементів масиву stringArray:', sumArray(stringArray));
-console.log('Сума елементів масиву numberArray:', sumArray(numberArray)); 
+console.log('Сума елементів масиву stringArray:', sumArray1(stringArray1));
+console.log('Сума елементів масиву numberArray:', sumArray1(numberArray1)); 
