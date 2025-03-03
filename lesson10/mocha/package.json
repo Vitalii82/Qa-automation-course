@@ -1,0 +1,39 @@
+{
+    "name": "simple",
+    "version": "1.0.0",
+    "description": "ts simple project",
+    "main": "index.js",
+    "scripts": {
+        "test": "test",
+        "lint": "eslint src/",
+        "lint:fix": "npm run lint -- --fix",
+        "build": "npm run lint && tsc --build"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "eslint-plugin-unicorn": "^56.0.1"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.19.0",
+        "@stylistic/eslint-plugin": "^3.0.0",
+        "@stylistic/eslint-plugin-ts": "^3.0.0",
+        "@types/chai": "^5.0.1",
+        "@types/expect": "^1.20.4",
+        "@typescript-eslint/eslint-plugin": "^8.21.0",
+        "@typescript-eslint/parser": "^8.21.0",
+        "chai": "^5.2.0",
+        "eslint": "^9.19.0",
+        "eslint-plugin-prettier": "^5.2.3",
+        "esrun": "^3.2.26",
+        "globals": "^15.15.0",
+        "mocha": "^11.1.0",
+        "prettier": "3.4.2",
+        "ts-mocha": "^11.1.0",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.19.3",
+        "typescript": "^5.7.3",
+        "typescript-eslint": "^8.21.0"
+    },
+    "keywords": []
+}
