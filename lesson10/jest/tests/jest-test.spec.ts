@@ -1,4 +1,5 @@
 import { manipulateTransport } from './mocha/src/TransportService';
+import { describe } from 'mocha';
 
 describe('Transport Service Functions', () => {
     test('should correctly modify transport speed', () => {
