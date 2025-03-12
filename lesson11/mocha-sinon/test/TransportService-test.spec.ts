@@ -68,7 +68,7 @@ describe('operateTransport', () => {
 
         operateTransport(mockTransport);
 
-        expect(consoleSpy.called).to.be.false; 
+        expect(consoleSpy.called).to.be.false;
         consoleSpy.restore();
     });
 });
