@@ -9,9 +9,10 @@
         "lint:fix": "npm run lint -- --fix",
         "build": "npm run lint && tsc --build",
         "debug:nix": "cross-env NODE_OPTIONS='$NODE_OPTIONS --experimental-vm-modules' jest",
+        "test": "npx eslint . && vitest",
         "debug:win": "set NODE_OPTIONS=%NODE_OPTIONS% --experimental-vm-modules && jest",
-        "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
         "jest": "NODE_OPTIONS=--experimental-vm-modules jest"
+        
     },
     "author": "",
     "license": "ISC",
