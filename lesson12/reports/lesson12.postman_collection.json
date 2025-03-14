@@ -1,0 +1,308 @@
+{
+	"id": "0fdf15b3-7b3b-4adc-809d-d7b116531871",
+	"name": "lesson12",
+	"timestamp": "2025-03-14T15:34:58.395Z",
+	"collection_id": "14933354-e7c70a52-1375-4f9a-a740-7d8efa04d0bd",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-03-14T15:34:57.127Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "08d8f1c9-d647-4ba8-9eb0-6d09c6e81aec",
+			"name": "Випадковий жарт",
+			"url": "http://localhost:3005/jokes/random",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1baaaabb-a6d3-49dd-b227-3b1f8d8bb2dc",
+			"name": "Додати новий жарт",
+			"url": "http://localhost:3005/jokes",
+			"time": 19,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b35e6665-ea2a-41da-9a16-658af80de3b4",
+			"name": "Оновити жарт",
+			"url": "http://localhost:3005/jokes/1",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3275aed0-d390-46c4-9003-f49a9b1166bc",
+			"name": "Видалити жарт",
+			"url": "http://localhost:3005/jokes/1",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "90058f36-1e53-44a6-8279-9fbfc1be4755",
+			"name": "10 випадкових жартів",
+			"url": "http://localhost:3005/jokes/ten",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				2
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8997404e-4acf-49a2-849e-a1b65ffad167",
+			"name": "Жарт по ID",
+			"url": "http://localhost:3005/jokes/5",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9d40900d-15f4-4105-8f2e-a40a9020aa8c",
+			"name": "Програмістський жарт",
+			"url": "http://localhost:3005/jokes/programming/random",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "251af0f2-eb2c-4b2c-8a0b-d86ebed1596d",
+			"name": "Загальний жарт",
+			"url": "http://localhost:3005/jokes/general/random",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				24
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "58fe74ab-0deb-4381-a6b5-ca1051cbce91",
+			"name": "Перевірка кількості жартів",
+			"url": "http://localhost:3005/jokes/count",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6c5d100a-9d87-4b30-8f6e-d6b1b65973bf",
+			"name": "Категорії жартів",
+			"url": "http://localhost:3005/jokes/categories",
+			"time": 27,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				27
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "31c6b32f-f912-41b1-9508-0652393bbcc2",
+			"name": "Перший жарт у списку",
+			"url": "http://localhost:3005/jokes/1",
+			"time": 2,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				2
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "74e80b0b-d1b4-42a8-b892-b32a31b36d42",
+			"name": "Останній жарт у списку (наприклад, якщо 100 жартів)",
+			"url": "http://localhost:3005/jokes/100",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c73f4b71-5645-43de-9a4f-fbd85a81f93c",
+			"name": "Некоректний ID",
+			"url": "http://localhost:3005/jokes/9999",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 103,
+	"collection": {
+		"requests": [
+			{
+				"id": "08d8f1c9-d647-4ba8-9eb0-6d09c6e81aec",
+				"method": "GET"
+			},
+			{
+				"id": "1baaaabb-a6d3-49dd-b227-3b1f8d8bb2dc",
+				"method": "POST"
+			},
+			{
+				"id": "b35e6665-ea2a-41da-9a16-658af80de3b4",
+				"method": "PUT"
+			},
+			{
+				"id": "3275aed0-d390-46c4-9003-f49a9b1166bc",
+				"method": "DELETE"
+			},
+			{
+				"id": "90058f36-1e53-44a6-8279-9fbfc1be4755",
+				"method": "GET"
+			},
+			{
+				"id": "8997404e-4acf-49a2-849e-a1b65ffad167",
+				"method": "GET"
+			},
+			{
+				"id": "9d40900d-15f4-4105-8f2e-a40a9020aa8c",
+				"method": "GET"
+			},
+			{
+				"id": "251af0f2-eb2c-4b2c-8a0b-d86ebed1596d",
+				"method": "GET"
+			},
+			{
+				"id": "58fe74ab-0deb-4381-a6b5-ca1051cbce91",
+				"method": "GET"
+			},
+			{
+				"id": "6c5d100a-9d87-4b30-8f6e-d6b1b65973bf",
+				"method": "GET"
+			},
+			{
+				"id": "31c6b32f-f912-41b1-9508-0652393bbcc2",
+				"method": "GET"
+			},
+			{
+				"id": "74e80b0b-d1b4-42a8-b892-b32a31b36d42",
+				"method": "GET"
+			},
+			{
+				"id": "c73f4b71-5645-43de-9a4f-fbd85a81f93c",
+				"method": "GET"
+			}
+		]
+	}
+}
