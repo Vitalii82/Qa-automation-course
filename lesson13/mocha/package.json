@@ -7,12 +7,13 @@
         "lint": "eslint src/",
         "lint:fix": "npm run lint -- --fix",
         "build": "npm run lint && tsc --build",
-        "test": "npx eslint . && mocha"
+        "test": "npx eslint . && mocha -r ts-node/register src/**/*.test.ts"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "eslint-plugin-unicorn": "^56.0.1"
+        "eslint-plugin-unicorn": "^56.0.1",
+        "node-fetch": "^3.3.2"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",
@@ -23,6 +24,7 @@
         "@types/expect": "^1.20.4",
         "@types/jest": "^29.5.14",
         "@types/mocha": "^10.0.10",
+        "@types/node-fetch": "^2.6.12",
         "@typescript-eslint/eslint-plugin": "^8.21.0",
         "@typescript-eslint/parser": "^8.21.0",
         "chai": "^5.2.0",
@@ -37,5 +39,6 @@
         "tsx": "^4.19.3",
         "typescript": "^5.7.3",
         "typescript-eslint": "^8.21.0"
-    }
+    },
+    "keywords": []
 }

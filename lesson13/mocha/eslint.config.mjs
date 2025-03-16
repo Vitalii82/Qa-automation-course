@@ -11,6 +11,7 @@ export default tsEslint.config({
     },
     extends: [eslint.configs.recommended, ...tsEslint.configs.recommended, ...tsEslint.configs.stylistic],
     rules: {
+        "unicorn/filename-case": "off",
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': ['off'],
         '@typescript-eslint/consistent-indexed-object-style': 'off',
