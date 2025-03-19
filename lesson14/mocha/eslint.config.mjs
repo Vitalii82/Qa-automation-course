@@ -12,6 +12,7 @@ export default tsEslint.config({
     extends: [eslint.configs.recommended, ...tsEslint.configs.recommended, ...tsEslint.configs.stylistic],
     rules: {
         'no-unused-expressions': 'off',
+        "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "no-public" }],
         '@typescript-eslint/no-unused-expressions': ['off'],
         '@typescript-eslint/consistent-indexed-object-style': 'off',
         '@typescript-eslint/no-explicit-any': 'warn',

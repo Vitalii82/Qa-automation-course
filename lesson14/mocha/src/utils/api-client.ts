@@ -1,7 +1,7 @@
 export class ApiClient {
-    constructor(private baseUrl: string) {}
+    public constructor(private readonly baseUrl: string) {}
 
-    async get(endpoint: string): Promise<any> {
+    public async get(endpoint: string): Promise<unknown> {
         const response = await fetch(`${this.baseUrl}${endpoint}`);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.json();

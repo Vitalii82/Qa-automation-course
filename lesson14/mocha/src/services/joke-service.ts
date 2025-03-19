@@ -1,28 +1,28 @@
-import JokesApi from '../api/JokesApi';
-import { Joke } from '../dto/Joke';
+import JokesApi from '../api/jokes-api';
+import { Joke } from '../dto/joke';
 
 export class JokeService {
-    private jokesApi: JokesApi;
+    private readonly jokesApi: JokesApi;
 
-    constructor(baseURL: string) {
+    public constructor(baseURL: string) {
         this.jokesApi = new JokesApi(baseURL);
     }
 
-    async getRandomProgrammingJoke(): Promise<Joke> {
+    public async getRandomProgrammingJoke(): Promise<Joke> {
         const jokes = await this.jokesApi.getJokeByType('programming');
         return jokes[Math.floor(Math.random() * jokes.length)];
     }
 
-    async searchJokeByKeyword(keyword: string): Promise<Joke[]> {
+    public async searchJokeByKeyword(keyword: string): Promise<Joke[]> {
         return this.jokesApi.searchJoke(keyword);
     }
 
-    async getFirstJoke(): Promise<Joke> {
+    public async getFirstJoke(): Promise<Joke> {
         const jokes = await this.jokesApi.getTenJokes();
         return jokes[0];
     }
 
-    async getLastJoke(): Promise<Joke> {
+    public async getLastJoke(): Promise<Joke> {
         const jokes = await this.jokesApi.getTenJokes();
         return jokes[jokes.length - 1];
     }

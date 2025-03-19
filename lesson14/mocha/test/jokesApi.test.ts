@@ -1,5 +1,7 @@
+/* eslint-disable unicorn/filename-case */
+import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { JokeService } from '../src/services/JokeService';
+import { JokeService } from '../src/services/joke-service';
 
 const jokeService = new JokeService('https://official-joke-api.appspot.com');
 

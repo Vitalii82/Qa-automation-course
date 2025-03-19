@@ -1,32 +1,32 @@
-import { Joke, validateJoke } from '../dto/Joke';
-import { ApiClient } from '../utils/ApiClient';
+import { Joke, validateJoke } from '../dto/joke';
+import { ApiClient } from '../utils/api-client';
 
 class JokesApi {
-    private client: ApiClient;
+    private readonly client: ApiClient;
 
-    constructor(baseURL: string) {
+    public constructor(baseURL: string) {
         this.client = new ApiClient(baseURL);
     }
 
-    async getRandomJoke(): Promise<Joke> {
+    public async getRandomJoke(): Promise<Joke> {
         const joke = await this.client.get('/random_joke');
         if (!validateJoke(joke)) throw new Error('Invalid joke format');
         return joke;
     }
 
-    async getTenJokes(): Promise<Joke[]> {
+    public async getTenJokes(): Promise<Joke[]> {
         const jokes = await this.client.get('/ten');
         if (!Array.isArray(jokes) || !jokes.every(validateJoke)) throw new Error('Invalid jokes array');
         return jokes;
     }
 
-    async getJokeByType(type: string): Promise<Joke[]> {
+    public async getJokeByType(type: string): Promise<Joke[]> {
         const jokes = await this.client.get(`/jokes/${type}`);
         if (!Array.isArray(jokes) || !jokes.every(validateJoke)) throw new Error('Invalid jokes array');
         return jokes;
     }
 
-    async searchJoke(term: string): Promise<Joke[]> {
+    public async searchJoke(term: string): Promise<Joke[]> {
         const jokes = await this.client.get(`/search?term=${term}`);
         if (!Array.isArray(jokes) || !jokes.every(validateJoke)) throw new Error('Invalid jokes array');
         return jokes;
