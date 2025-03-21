@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "e7c70a52-1375-4f9a-a740-7d8efa04d0bd",
+		"name": "lesson12",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14933354"
+	},
+	"item": [
+		{
+			"name": "Випадковий жарт",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get random joke', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/random', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data).to.have.property('setup');\r",
+							"        pm.expect(data).to.have.property('punchline');\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3005/jokes/random",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Додати новий жарт",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"setup\": \"Як програмісти зізнаються в коханні?\",\r\n  \"punchline\": \"if (you.loveMe) { return true; }\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/jokes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Оновити жарт",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"setup\": \"Як програмісти зізнаються в коханні?\",\r\n  \"punchline\": \"if (you.loveMe) { return true; }\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/jokes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Видалити жарт",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"message\": \"Joke deleted successfully\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3005/jokes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 випадкових жартів",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get 10 random jokes', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/ten', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data.length).to.equal(10);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/ten",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Жарт по ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get joke by ID 5', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/5', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data.id).to.equal(5);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Програмістський жарт",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get random programming joke', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/programming/random', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data.type).to.equal('programming');\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/programming/random",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"programming",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Загальний жарт",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get random general joke', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/general/random', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data.type).to.equal('general');\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/general/random",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"general",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Перевірка кількості жартів",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Check joke count', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/count', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const count = res.json();\r",
+							"        pm.expect(count).to.be.a('number');\r",
+							"        pm.environment.set('joke_count', count);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Категорії жартів",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Check joke categories', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/categories', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const categories = res.json();\r",
+							"        pm.expect(categories).to.include('general');\r",
+							"        pm.expect(categories).to.include('programming');\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Перший жарт у списку",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get first joke by ID 1', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/1', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data.id).to.equal(1);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Останній жарт у списку (наприклад, якщо 100 жартів)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get last joke by ID', function () {\r",
+							"    const lastId = pm.environment.get('joke_count');\r",
+							"    pm.sendRequest(`http://localhost:3005/jokes/${lastId}`, function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(200);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data.id).to.equal(lastId);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Некоректний ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Get joke with invalid ID', function () {\r",
+							"    pm.sendRequest('http://localhost:3005/jokes/9999', function (err, res) {\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(res.status).to.equal(404);\r",
+							"        const data = res.json();\r",
+							"        pm.expect(data.message).to.equal('Joke not found');\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3005/jokes/9999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"jokes",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

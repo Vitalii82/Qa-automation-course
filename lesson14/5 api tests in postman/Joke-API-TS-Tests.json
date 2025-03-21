@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Joke API Updated Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Random Joke",
+      "request": {
+        "method": "GET",
+        "url": "https://official-joke-api.appspot.com/random_joke"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json();",
+              "pm.test('Response contains setup and punchline', () => {",
+              "    pm.expect(data).to.have.property('setup');",
+              "    pm.expect(data).to.have.property('punchline');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get 10 Jokes",
+      "request": {
+        "method": "GET",
+        "url": "https://official-joke-api.appspot.com/jokes/ten"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json();",
+              "pm.test('Response contains 10 jokes', () => {",
+              "    pm.expect(data).to.be.an('array').that.has.lengthOf(10);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Programming Jokes",
+      "request": {
+        "method": "GET",
+        "url": "https://official-joke-api.appspot.com/jokes/programming/ten"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json();",
+              "pm.test('Response is an array', () => {",
+              "    pm.expect(data).to.be.an('array').that.has.lengthOf(10);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Joke by ID",
+      "request": {
+        "method": "GET",
+        "url": "https://official-joke-api.appspot.com/jokes/general/5"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => pm.response.to.have.status(200));",
+              "const data = pm.response.json();",
+              "pm.test('Response contains setup and punchline', () => {",
+              "    pm.expect(data).to.have.property('setup');",
+              "    pm.expect(data).to.have.property('punchline');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Non-Existing Endpoint",
+      "request": {
+        "method": "GET",
+        "url": "https://official-joke-api.appspot.com/non_existing"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 404', () => pm.response.to.have.status(404));"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}
