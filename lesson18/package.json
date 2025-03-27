@@ -1,33 +1,30 @@
 {
-  "name": "lesson15",
+  "name": "lesson18-playwright-test",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.ts"
+    "test": "playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "chai": "^5.2.0",
-    "selenium-webdriver": "^4.29.0"
-  },
+  "type": "commonjs",
   "devDependencies": {
-    "@types/chai": "^5.2.0",
-    "@types/mocha": "^10.0.10",
-    "@types/selenium-webdriver": "^4.1.28",
-    "@wdio/cli": "^9.12.1",
-    "@wdio/local-runner": "^9.12.1",
-    "@wdio/mocha-framework": "^9.12.1",
-    "@wdio/spec-reporter": "^9.11.0",
-    "chromedriver": "^134.0.5",
-    "cypress": "^14.2.1",
-    "mocha": "^11.1.0",
-    "puppeteer": "^24.4.0",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.10",
+    "@eslint/js": "^9.22.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@stylistic/eslint-plugin-ts": "^4.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-unicorn": "^57.0.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2",
-    "webdriverio": "^9.12.1"
+    "typescript-eslint": "^8.27.0"
   }
 }
