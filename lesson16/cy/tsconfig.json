@@ -1,0 +1,33 @@
+{
+  "exclude": [
+    "eslint.config.mjs",
+    "./build/**/*",
+    "./node_modules/**/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",                               /* Base directory to resolve non-relative module names. */
+    "target": "ES6",                              /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "lib": [
+      "ESNext",
+      "es6",
+      "DOM"
+    ],                                            /* Specify library files to be included in the compilation. */
+    "module": "CommonJS",                         /* Specify what module code is generated. */
+    "rootDir": "c:/Users/Admin/Desktop/rd homework/lesson 2/lesson16/cy/cypress",                             /* Specify the root directory of input files. */
+    "resolveJsonModule": true,                    /* Include modules imported with .json extension. */
+    "allowJs": true,                              /* Allow JavaScript files to be compiled. */
+    "outDir": "./dist",                            /* Redirect output structure to the directory. */
+    "esModuleInterop": true,                      /* Emit additional JS to ease support for importing CommonJS modules. */
+    "forceConsistentCasingInFileNames": true,     /* Ensure that casing is correct in imports. */
+    "moduleResolution": "node",                   /* Specify module resolution strategy: 'node' for Node.js. */
+    "experimentalDecorators": true,               /* Enable experimental support for decorators. */
+    /* Type Checking */
+    "strict": true,                               /* Enable all strict type-checking options. */
+    //"noImplicitAny": true,                      /* Enable error reporting for expressions and declarations with an implied 'any' type. Commented it to allow ESlint to warn it instead of error */
+    "skipLibCheck": true,                         /* Skip type checking all .d.ts files. */
+    "typeRoots": [
+      "node_modules/@types"
+    ]                                             /* List of folders to include type definitions from. */
+  },
+  "include": ["cypress/support", "cypress/e2e","cypress/support/**/*.ts"]
+}
