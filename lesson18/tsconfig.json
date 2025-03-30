@@ -1,6 +1,6 @@
 
 {
-    "include": ["test/**/*"],
+    "include": ["tests/**/*"],
     "exclude": [
       "eslint.config.mjs",
       "./build/**/*",
@@ -27,6 +27,8 @@
       "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
       "typeRoots": [
         "node_modules/@types"
-      ]
+        
+      ],
+      "types": ["node"]
     }
   }
