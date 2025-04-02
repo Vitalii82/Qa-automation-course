@@ -1,5 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
-import { RozetkaPage } from '../src/pages/RozetkaPage';
+import { RozetkaPage } from '../src/pages/Rozetka-Page';
 
 test.describe('Rozetka Tests', () => {
     let page: Page;
