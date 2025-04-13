@@ -1,31 +1,44 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
+import { Header } from '../components/header';
+import { Footer } from '../components/footer';
+import { ProductCard } from '../components/product-card';
 
 export class MainPage {
-    private page: Page;
-    private loginButton: Locator;
-    private logoutButton: Locator;
-    private cartButton: Locator;
+    public page: Page;
+    public header: Header;
+    public footer: Footer;
 
-    constructor(page: Page) {
+    public constructor(page: Page) {
         this.page = page;
-        this.loginButton = page.locator('#login-button');
-        this.logoutButton = page.locator('#logout-button');
-        this.cartButton = page.locator('#cart-button');
+        this.header = new Header(page);
+        this.footer = new Footer(page);
     }
 
     public async goto(): Promise<void> {
-        await this.page.goto('https://www.demoblaze.com');
+        await this.page.goto('https://www.demoblaze.com/');
     }
 
-    public async login(): Promise<void> {
-        await this.loginButton.click();
+    public async verifyHeaderAndFooterVisible(): Promise<void> {
+        await this.header.verifyHeaderVisible();
+        expect(await this.footer.verifyVisible()).toBeTruthy();
     }
 
-    public async logout(): Promise<void> {
-        await this.logoutButton.click();
+    public async getProductCardsCount(): Promise<number> {
+        return await this.page.locator('.card').count();
     }
 
-    public async openCart(): Promise<void> {
-        await this.cartButton.click();
+    public async clickOnProductByName(productName: string): Promise<void> {
+        const cards = this.page.locator('.card');
+        const count = await cards.count();
+
+        for (let i = 0; i < count; i++) {
+            const title = await cards.nth(i).locator('.card-title').textContent();
+            if (title?.trim() === productName) {
+                await cards.nth(i).click();
+                return;
+            }
+        }
+
+        throw new Error(`Product with name "${productName}" not found.`);
     }
 }

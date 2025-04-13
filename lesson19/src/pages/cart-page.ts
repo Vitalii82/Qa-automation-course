@@ -1,26 +1,27 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
+import { Header } from '../components/header';
+import { Footer } from '../components/footer';
 
 export class CartPage {
-    private page: Page;
-    private cartItems: Locator;
-    private orderConfirmationMessage: Locator;
+    public header: Header;
+    public footer: Footer;
 
-    public constructor(page: Page) {
-        this.page = page;
-        this.cartItems = page.locator('#cart tbody tr');
-        this.orderConfirmationMessage = page.locator('#order-confirmation');
+    public constructor(private page: Page) {
+        this.header = new Header(page);
+        this.footer = new Footer(page);
     }
 
     public async goto(): Promise<void> {
         await this.page.goto('https://www.demoblaze.com/cart.html');
     }
 
-    public async removeProduct(productName: string): Promise<void> {
-        const productRow = this.page.locator(`//td[contains(text(), "${productName}")]/..//a[contains(text(), "Delete")]`);
-        await productRow.click();
+    public async isProductInCart(productName: string): Promise<boolean> {
+        const productRow = this.page.locator(`tr:has-text("${productName}")`);
+        return await productRow.isVisible();
     }
 
-    public async placeOrder(): Promise<void> {
-        await this.page.locator('button:has-text(\'Place Order\')').click();
+    public async verifyHeaderAndFooterVisible(): Promise<void> {
+        await this.header.verifyHeaderVisible();
+        expect(await this.footer.verifyVisible()).toBeTruthy();
     }
 }

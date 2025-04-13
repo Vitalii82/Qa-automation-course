@@ -1,31 +1,26 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
+import { Header } from '../components/header';
+import { Footer } from '../components/footer';
 
 export class ProductPage {
-    private page: Page;
-    private addToCartButton: Locator;
-    private productTitle: Locator;
-    private productPrice: Locator;
+    public header: Header;
+    public footer: Footer;
 
-    public constructor(page: Page) {
-        this.page = page;
-        this.addToCartButton = page.locator('#add-to-cart');
-        this.productTitle = page.locator('.product-title');
-        this.productPrice = page.locator('.product-price');
+    public constructor(private page: Page) {
+        this.header = new Header(page);
+        this.footer = new Footer(page);
     }
 
-    public async goto(productId: string): Promise<void> {
-        await this.page.goto(`https://www.demoblaze.com/product?id=${productId}`);
+    public async getProductTitle(): Promise<string | null> {
+        return this.page.locator('.name').textContent();
     }
 
     public async addToCart(): Promise<void> {
-        await this.addToCartButton.click();
+        await this.page.locator('a.btn.btn-success.btn-lg').click();
     }
 
-    public async getProductTitle(): Promise<string> {
-        return this.productTitle.textContent();
-    }
-
-    public async getProductPrice(): Promise<string> {
-        return this.productPrice.textContent();
+    public async verifyHeaderAndFooterVisible(): Promise<void> {
+        await this.header.verifyHeaderVisible();
+        expect(await this.footer.verifyVisible()).toBeTruthy();
     }
 }
