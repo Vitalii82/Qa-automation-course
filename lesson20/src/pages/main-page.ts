@@ -1,25 +1,28 @@
-import { Page, expect } from 'playwright';
+import { Page } from 'playwright';
 import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 
 export class MainPage {
-    private header: Header;
-    private footer: Footer;
+    public readonly page: Page;
+    public readonly header: Header;
+    public readonly footer: Footer;
 
-    constructor(private page: Page) {
+    public constructor(page: Page) {
+        this.page = page;
         this.header = new Header(page);
         this.footer = new Footer(page);
     }
 
-    async verifyHeaderVisible(): Promise<void> {
-        await this.header.verifyVisible();
+    public async goto(): Promise<void> {
+        await this.page.goto('https://www.demoblaze.com/');
     }
 
-    async verifyFooterVisible(): Promise<void> {
-        await this.footer.verifyVisible();
+    public async verifyHeaderAndFooterVisible(): Promise<void> {
+        await this.header.verifyHeaderVisible();
+        await this.footer.verifyFooterVisible();
     }
 
-    async verifyProductCardsVisible(): Promise<void> {
-        await expect(this.page.locator('.card-block')).toBeVisible();
+    public async clickFirstProductCard(): Promise<void> {
+        await this.page.locator('.card-title >> nth=0').click();
     }
 }

@@ -1,9 +1,22 @@
-import { Page, expect } from 'playwright';
+import { Page } from 'playwright';
+import { expect } from '@playwright/test';
 
 export class Footer {
-    public constructor(private page: Page) {}
+    private page: Page;
 
-    async verifyVisible(): Promise<void> {
-        await expect(this.page.locator('footer')).toBeVisible();
+    public constructor(page: Page) {
+        this.page = page;
+    }
+
+    public async verifyFooterVisible():Promise<void> {
+        await expect(this.page.locator('footer')).toBeVisible({ timeout: 5000 });
+    }
+
+    public async verifyCopyrightVisible():Promise<void> {
+        await expect(this.page.locator('footer')).toContainText('©');
+    }
+
+    public async verifySocialMediaIconsVisible():Promise<void> {
+        await expect(this.page.locator('footer i')).toHaveCount(4);
     }
 }

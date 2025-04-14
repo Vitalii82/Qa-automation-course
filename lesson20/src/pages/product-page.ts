@@ -1,30 +1,25 @@
-import { Page, expect } from 'playwright';
+import { Page } from 'playwright';
+import { expect } from '@playwright/test';
 import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 
 export class ProductPage {
-    private header: Header;
-    private footer: Footer;
+    private page: Page;
+    public header: Header;
+    public footer: Footer;
 
-    public constructor(private page: Page) {
+    public constructor(page: Page) {
+        this.page = page;
         this.header = new Header(page);
         this.footer = new Footer(page);
     }
 
-    async verifyHeaderVisible(): Promise<void> {
-        await this.header.verifyVisible();
-    }
-
-    async verifyFooterVisible(): Promise<void> {
-        await this.footer.verifyVisible();
-    }
-
-    async addToCart(): Promise<void> {
+    public async addToCart(): Promise<void> {
         await this.page.click('a:has-text("Add to cart")');
         await this.page.waitForEvent('dialog').then(dialog => dialog.accept());
     }
 
-    async getProductTitle(): Promise<string> {
-        return await this.page.locator('.name').innerText();
+    public async verifyProductDetailsVisible(): Promise<void> {
+        await expect(this.page.locator('.name')).toBeVisible();
     }
 }
