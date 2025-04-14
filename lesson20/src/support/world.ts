@@ -1,11 +1,11 @@
-import { IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
-import { BrowserContext, Page } from 'playwright';
+import { World, setWorldConstructor } from '@cucumber/cucumber';
+import { Page, BrowserContext } from 'playwright';
 
 export class CustomWorld extends World {
-    public context!: BrowserContext;
     public page!: Page;
+    public context!: BrowserContext;
 
-    public constructor(options: IWorldOptions) {
+    public constructor(options: any) {
         super(options);
     }
 }

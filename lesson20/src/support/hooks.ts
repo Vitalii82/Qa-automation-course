@@ -1,22 +1,19 @@
-import { Before, After, setDefaultTimeout } from '@cucumber/cucumber';
-import { Browser, BrowserContext, Page, chromium } from 'playwright';
+import { Before, After } from '@cucumber/cucumber';
 import { CustomWorld } from './world';
+import { chromium, Browser } from 'playwright'; // Імпортуємо chromium для створення браузера
 
-setDefaultTimeout(60 * 1000); // 60 секунд на крок
-
-let browser: Browser;
+let browser: Browser; // Перемінна для браузера
 
 Before(async function (this: CustomWorld) {
-    browser = await chromium.launch({ headless: false }); // headless: false для зручності дебагу
-    const context: BrowserContext = await browser.newContext();
-    const page: Page = await context.newPage();
-
-    this.context = context;
-    this.page = page;
+    // Ініціалізація браузера та контексту
+    browser = await chromium.launch(); // Запускаємо браузер
+    this.context = await browser.newContext(); // Створюємо новий контекст
+    this.page = await this.context.newPage(); // Створюємо нову сторінку
 });
 
 After(async function (this: CustomWorld) {
-    await this.page?.close();
-    await this.context?.close();
-    await browser?.close();
+    // Очищення після тесту
+    await this.page.close(); // Закриваємо сторінку
+    await this.context.close(); // Закриваємо контекст
+    await browser.close(); // Закриваємо браузер
 });
