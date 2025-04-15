@@ -1,0 +1,11 @@
+{
+    "extension": "ts",
+    "spec": "test/**/*.spec.ts",
+    "require": ["tsx", "./hooks/mocha-global-setup.ts"],
+    "retries": 2,
+    "timeout": 120000,
+    "reporter": "mochawesome",
+    "reportFilename": "customReportFilename",
+    "quiet": true
+    
+}
