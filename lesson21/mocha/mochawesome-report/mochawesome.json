@@ -1,0 +1,270 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 6,
+    "passes": 2,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-04-15T20:55:17.166Z",
+    "end": "2025-04-15T20:55:20.018Z",
+    "duration": 2852,
+    "testsRegistered": 6,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "30d4d12a-acba-471d-8b47-e8e9473d6626",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "661282f9-e1c0-48cc-a17a-11687b1783e1",
+          "title": "TheCatAPI Integration Tests",
+          "fullFile": "C:\\Users\\Admin\\Desktop\\rd homework\\lesson 2\\lesson21\\mocha\\src\\integration.test.ts",
+          "file": "\\src\\integration.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1️⃣ Get a random cat image",
+              "fullTitle": "TheCatAPI Integration Tests 1️⃣ Get a random cat image",
+              "timedOut": false,
+              "duration": 557,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res=await(0,import_api.getRandomImage)();(0,import_chai.expect)(res.status).to.equal(200);imageId=res.data[0].id;(0,import_chai.expect)(imageId).to.be.a(\"string\")",
+              "err": {},
+              "uuid": "72e4c172-4983-41af-ad69-a173c54116f2",
+              "parentUUID": "661282f9-e1c0-48cc-a17a-11687b1783e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2️⃣ Vote for the image",
+              "fullTitle": "TheCatAPI Integration Tests 2️⃣ Vote for the image",
+              "timedOut": false,
+              "duration": 239,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const res=await(0,import_api.voteForImage)(imageId,1);(0,import_chai.expect)(res.status).to.equal(201)",
+              "err": {
+                "message": "AxiosError: Request failed with status code 401",
+                "estack": "AxiosError: Request failed with status code 401\n    at settle (node_modules\\axios\\lib\\core\\settle.js:19:12)\n    at IncomingMessage.handleStreamEnd (node_modules\\axios\\lib\\adapters\\http.js:599:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at IncomingMessage.emit (node:domain:488:12)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)\n    at Axios.request (node_modules\\axios\\lib\\core\\Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Context.<anonymous> (src\\integration.test.ts:2:431)",
+                "diff": null
+              },
+              "uuid": "0d513e1b-6af4-4b8f-8569-3ffeccbdd7e3",
+              "parentUUID": "661282f9-e1c0-48cc-a17a-11687b1783e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3️⃣ Add image to favourites",
+              "fullTitle": "TheCatAPI Integration Tests 3️⃣ Add image to favourites",
+              "timedOut": false,
+              "duration": 228,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const res=await(0,import_api.addFavourite)(imageId);(0,import_chai.expect)(res.status).to.equal(200);favouriteId=res.data.id;(0,import_chai.expect)(favouriteId).to.be.a(\"number\")",
+              "err": {
+                "message": "AxiosError: Request failed with status code 401",
+                "estack": "AxiosError: Request failed with status code 401\n    at settle (node_modules\\axios\\lib\\core\\settle.js:19:12)\n    at IncomingMessage.handleStreamEnd (node_modules\\axios\\lib\\adapters\\http.js:599:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at IncomingMessage.emit (node:domain:488:12)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)\n    at Axios.request (node_modules\\axios\\lib\\core\\Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Context.<anonymous> (src\\integration.test.ts:2:589)",
+                "diff": null
+              },
+              "uuid": "9105931e-ddce-423f-a669-886309731495",
+              "parentUUID": "661282f9-e1c0-48cc-a17a-11687b1783e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4️⃣ Verify image in favourites",
+              "fullTitle": "TheCatAPI Integration Tests 4️⃣ Verify image in favourites",
+              "timedOut": false,
+              "duration": 242,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const res=await(0,import_api.getFavourites)();(0,import_chai.expect)(res.status).to.equal(200);const favourite=res.data.find(fav=>fav.image_id===imageId);(0,import_chai.expect)(favourite).to.not.be.undefined",
+              "err": {
+                "message": "AxiosError: Request failed with status code 401",
+                "estack": "AxiosError: Request failed with status code 401\n    at settle (node_modules\\axios\\lib\\core\\settle.js:19:12)\n    at IncomingMessage.handleStreamEnd (node_modules\\axios\\lib\\adapters\\http.js:599:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at IncomingMessage.emit (node:domain:488:12)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)\n    at Axios.request (node_modules\\axios\\lib\\core\\Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Context.<anonymous> (src\\integration.test.ts:2:826)",
+                "diff": null
+              },
+              "uuid": "61be6363-3fa8-4846-9bb2-678e28bd809a",
+              "parentUUID": "661282f9-e1c0-48cc-a17a-11687b1783e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "5️⃣ Delete favourite",
+              "fullTitle": "TheCatAPI Integration Tests 5️⃣ Delete favourite",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const res=await(0,import_api.deleteFavourite)(favouriteId.toString());(0,import_chai.expect)(res.status).to.equal(200)",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'toString')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at Context.<anonymous> (src\\integration.test.ts:2:1130)\n    at processImmediate (node:internal/timers:483:21)",
+                "diff": null
+              },
+              "uuid": "9fcf7fc1-161f-43d4-9e3c-2c24a534e14e",
+              "parentUUID": "661282f9-e1c0-48cc-a17a-11687b1783e1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "72e4c172-4983-41af-ad69-a173c54116f2"
+          ],
+          "failures": [
+            "0d513e1b-6af4-4b8f-8569-3ffeccbdd7e3",
+            "9105931e-ddce-423f-a669-886309731495",
+            "61be6363-3fa8-4846-9bb2-678e28bd809a",
+            "9fcf7fc1-161f-43d4-9e3c-2c24a534e14e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1267,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 120000
+        },
+        {
+          "uuid": "6e8fa0a2-db99-4f4f-b4d6-0d330ec76dac",
+          "title": "Consumer Contract Test",
+          "fullFile": "C:\\Users\\Admin\\Desktop\\rd homework\\lesson 2\\lesson21\\mocha\\src\\petstore_contract.test.ts",
+          "file": "\\src\\petstore_contract.test.ts",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Consumer Contract Test\"",
+              "fullTitle": "Consumer Contract Test \"before all\" hook in \"Consumer Contract Test\"",
+              "timedOut": false,
+              "duration": 20,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "provider.setup()",
+              "err": {},
+              "uuid": "11c247b8-ebcc-4d73-9bd1-9e3f8e520867",
+              "parentUUID": "6e8fa0a2-db99-4f4f-b4d6-0d330ec76dac",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Consumer Contract Test\"",
+              "fullTitle": "Consumer Contract Test \"after all\" hook in \"Consumer Contract Test\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "provider.finalize()",
+              "err": {},
+              "uuid": "85f81b0c-3c5d-4944-bb7f-e091a80a2a4f",
+              "parentUUID": "6e8fa0a2-db99-4f4f-b4d6-0d330ec76dac",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Fetch pet by ID",
+              "fullTitle": "Consumer Contract Test Fetch pet by ID",
+              "timedOut": false,
+              "duration": 119,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const petId=1;await provider.addInteraction({state:\"a pet with ID 1 exists\",uponReceiving:\"a request for pet with ID 1\",withRequest:{method:\"GET\",path:`/v2/pet/${petId}`},willRespondWith:{status:200,body:{id:petId,name:\"Doggie\",status:\"available\"}}});const response=await import_axios.default.get(`http://localhost:8081/v2/pet/${petId}`);(0,import_chai.expect)(response.status).to.equal(200);(0,import_chai.expect)(response.data.name).to.equal(\"Doggie\")",
+              "err": {},
+              "uuid": "24e25124-fdd0-4513-8c44-3d5f1d2a06c0",
+              "parentUUID": "6e8fa0a2-db99-4f4f-b4d6-0d330ec76dac",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "24e25124-fdd0-4513-8c44-3d5f1d2a06c0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 119,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 120000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 120000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
